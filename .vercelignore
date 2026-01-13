@@ -1,0 +1,8 @@
+node_modules
+.next
+.git
+public/gallery_backup_*
+public/gallery_backup_**/
+**/*.bak
+**/*.tmp
+.DS_Store

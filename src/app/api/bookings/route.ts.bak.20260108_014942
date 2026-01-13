@@ -1,0 +1,144 @@
+import { NextResponse } from "next/server";
+import { supabaseAdmin } from "@/lib/supabaseAdmin";
+import { bookingSchema } from "@/lib/bookingSchema";
+import { calculatePrice } from "@/lib/pricing";
+import { resend, getMailFrom, getNotifyTo } from "@/lib/resendClient";
+import { guestNewBookingEmail, ownerNewBookingEmail } from "@/lib/emailTemplates";
+
+function overlaps(aStart: string, aEnd: string, bStart: string, bEnd: string) {
+  // Konflikt jeśli: aStart < bEnd && aEnd > bStart
+  return aStart < bEnd && aEnd > bStart;
+}
+
+export async function POST(req: Request) {
+  const body = await req.json().catch(() => null);
+  const parsed = bookingSchema.safeParse(body);
+
+  if (!parsed.success) {
+    return NextResponse.json(
+      { ok: false, errors: parsed.error.flatten() },
+      { status: 400 }
+    );
+  }
+
+  const { name, email, phone, checkIn, checkOut, notes } = parsed.data;
+
+  // 1) Pobierz istniejące rezerwacje/ blokady do sprawdzenia konfliktu
+  const { data: bookings, error: bErr } = await supabaseAdmin
+    .from("bookings")
+    .select("check_in, check_out, status")
+    .neq("status", "cancelled");
+
+  if (bErr)
+    return NextResponse.json({ ok: false, error: bErr.message }, { status: 500 });
+
+  const { data: blocks, error: blErr } = await supabaseAdmin
+    .from("blocks")
+    .select("check_in, check_out");
+
+  if (blErr)
+    return NextResponse.json({ ok: false, error: blErr.message }, { status: 500 });
+
+  const conflictBooking = (bookings ?? []).some((r) =>
+    overlaps(checkIn, checkOut, r.check_in, r.check_out)
+  );
+  const conflictBlock = (blocks ?? []).some((r) =>
+    overlaps(checkIn, checkOut, r.check_in, r.check_out)
+  );
+
+  if (conflictBooking || conflictBlock) {
+    return NextResponse.json(
+      { ok: false, message: "Ten termin jest już zajęty. Wybierz inny." },
+      { status: 409 }
+    );
+  }
+
+  // 2) Zapis do bazy
+  
+  const quote = calculatePrice({
+    checkIn,
+    checkOut,
+    guests: parsed.data.guests ?? 1,
+    pets: parsed.data.pets ?? false,
+  });
+
+  if (!quote.ok) {
+    return NextResponse.json({ ok: false, message: quote.message }, { status: 400 });
+  }
+
+const { data: inserted, error: insErr } = await supabaseAdmin
+  .from("bookings")
+  .insert([
+    {
+      name,
+      email,
+      phone: phone || null,
+      check_in: checkIn,
+      check_out: checkOut,
+      notes: notes || null,
+      status: "pending",
+
+      guests: quote.guests,
+      pets: quote.pets,
+      total_price: quote.breakdown.total,
+      currency: quote.currency,
+      price_breakdown: quote.breakdown,
+    },
+  ])
+  .select("name,email,phone,check_in,check_out,guests,pets,total_price,currency,notes,status")
+  .single();
+
+if (insErr) {
+  return NextResponse.json({ ok: false, error: insErr.message }, { status: 500 });
+}
+
+try {
+  const from = getMailFrom();
+  const notifyTo = getNotifyTo();
+
+  const bookingData = {
+    name: inserted.name,
+    email: inserted.email,
+    phone: inserted.phone,
+    checkIn: inserted.check_in,
+    checkOut: inserted.check_out,
+    guests: inserted.guests,
+    pets: inserted.pets,
+    total: inserted.total_price,
+    currency: inserted.currency,
+    notes: inserted.notes,
+    status: inserted.status,
+  };
+
+  if (resend) {
+    const guest = guestNewBookingEmail(bookingData);
+    await resend.emails.send({
+      from,
+      to: inserted.email,
+      subject: guest.subject,
+      html: guest.html,
+      text: guest.text,
+    });
+
+    if (notifyTo) {
+      const owner = ownerNewBookingEmail(bookingData);
+      await resend.emails.send({
+        from,
+        to: notifyTo,
+        subject: owner.subject,
+        html: owner.html,
+        text: owner.text,
+      });
+    }
+  } else {
+    console.log("RESEND_API_KEY not set — skipping email sending.");
+  }
+} catch (e) {
+  console.log("Email sending failed (booking still created):", e);
+}
+
+, { status: 500 });
+  }
+
+  return NextResponse.json({ ok: true });
+}

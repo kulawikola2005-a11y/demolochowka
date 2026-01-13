@@ -1,0 +1,61 @@
+"use client";
+
+import { Suspense, useState } from "react";
+import { useSearchParams, useRouter } from "next/navigation";
+
+function LoginInner() {
+  const [key, setKey] = useState("");
+  const [msg, setMsg] = useState<string | null>(null);
+  const router = useRouter();
+  const sp = useSearchParams();
+  const next = sp.get("next") || "/admin";
+
+  async function submit() {
+    setMsg(null);
+    const res = await fetch("/api/admin/login", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ key }),
+    });
+    const data = await res.json().catch(() => null);
+    if (!data?.ok) {
+      setMsg("Zły klucz.");
+      return;
+    }
+    router.push(next);
+  }
+
+  return (
+    <main className="mx-auto max-w-md px-4 py-16">
+      <h1 className="text-2xl font-semibold">Admin — logowanie</h1>
+      <p className="mt-2 text-gray-600 text-sm">Wpisz ADMIN_KEY.</p>
+
+      <div className="mt-6 grid gap-3">
+        <input
+          className="w-full rounded-xl border px-3 py-2"
+          placeholder="ADMIN_KEY"
+          value={key}
+          onChange={(e) => setKey(e.target.value)}
+        />
+        <button onClick={submit} className="rounded-xl bg-black text-white px-4 py-2">
+          Zaloguj
+        </button>
+        {msg && <p className="text-sm text-red-600">{msg}</p>}
+      </div>
+    </main>
+  );
+}
+
+export default function AdminLoginPage() {
+  return (
+    <Suspense
+      fallback={
+        <main className="mx-auto max-w-md px-4 py-16">
+          <p>Ładowanie…</p>
+        </main>
+      }
+    >
+      <LoginInner />
+    </Suspense>
+  );
+}

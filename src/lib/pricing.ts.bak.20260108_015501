@@ -1,0 +1,115 @@
+import { addDays, differenceInCalendarDays, format, getDay, isBefore, parseISO } from "date-fns";
+import { pricingConfig } from "@/data/pricing";
+
+type Special = (typeof pricingConfig.specials)[number];
+
+function inRange(day: Date, from: string, to: string) {
+  const f = parseISO(from);
+  const t = parseISO(to);
+  // day >= f && day < t
+  return !isBefore(day, f) && isBefore(day, t);
+}
+
+function weekendNightRate(baseWeekday: number, baseWeekend: number, nightDate: Date) {
+  // noc "należy" do dnia check-in (nightDate). Weekend: pt (5) i sob (6)
+  const dow = getDay(nightDate); // 0 niedz ... 6 sob
+  const isWeekend = dow === 5 || dow === 6;
+  return isWeekend ? baseWeekend : baseWeekday;
+}
+
+function applicableSpecial(nightDate: Date): Special | null {
+  // Jeśli kilka pasuje, bierzemy pierwsze z listy (możesz to świadomie ustawić kolejnością)
+  for (const sp of pricingConfig.specials) {
+    if (inRange(nightDate, sp.from, sp.to)) return sp;
+  }
+  return null;
+}
+
+export function calculatePrice(params: {
+  checkIn: string;   // YYYY-MM-DD
+  checkOut: string;  // YYYY-MM-DD (dzień wyjazdu, niewliczany jako noc)
+  guests?: number;
+  pets?: boolean;
+}) {
+  const { checkIn, checkOut } = params;
+  const guests = Math.max(1, params.guests ?? 1);
+  const pets = !!params.pets;
+
+  const dIn = parseISO(checkIn);
+  const dOut = parseISO(checkOut);
+
+  const nights = differenceInCalendarDays(dOut, dIn);
+  if (nights <= 0) {
+    return {
+      ok: false as const,
+      message: "Check-out musi być po check-in.",
+    };
+  }
+
+  let minNightsRequired = pricingConfig.defaultMinNights;
+
+  const lines: Array<{
+    date: string;
+    label: string;
+    rate: number;
+  }> = [];
+
+  let nightsTotal = 0;
+
+  for (let i = 0; i < nights; i++) {
+    const nightDate = addDays(dIn, i);
+    const sp = applicableSpecial(nightDate);
+
+    let rate = weekendNightRate(pricingConfig.baseWeekday, pricingConfig.baseWeekend, nightDate);
+    let label = getDay(nightDate) === 5 || getDay(nightDate) === 6 ? "Weekend" : "Tydzień";
+
+    if (sp?.nightly) {
+      rate = sp.nightly;
+      label = sp.name;
+    } else if (sp?.multiplier) {
+      rate = Math.round(rate * sp.multiplier);
+      label = sp.name;
+    }
+
+    if (sp?.minNights) {
+      minNightsRequired = Math.max(minNightsRequired, sp.minNights);
+    }
+
+    nightsTotal += rate;
+
+    lines.push({
+      date: format(nightDate, "yyyy-MM-dd"),
+      label,
+      rate,
+    });
+  }
+
+  const extraGuests = Math.max(0, guests - pricingConfig.baseGuests);
+  const extraGuestTotal = extraGuests * pricingConfig.extraGuestPerNight * nights;
+  const petFee = pets ? pricingConfig.petFeePerStay : 0;
+
+  const total =
+    nightsTotal +
+    pricingConfig.cleaningFee +
+    extraGuestTotal +
+    petFee;
+
+  return {
+    ok: true as const,
+    currency: pricingConfig.currency,
+    nights,
+    minNightsRequired,
+    guests,
+    pets,
+    breakdown: {
+      lines,
+      nightsTotal,
+      cleaningFee: pricingConfig.cleaningFee,
+      extraGuests,
+      extraGuestPerNight: pricingConfig.extraGuestPerNight,
+      extraGuestTotal,
+      petFee,
+      total,
+    },
+  };
+}

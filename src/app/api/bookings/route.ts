@@ -1,0 +1,111 @@
+import { NextResponse } from "next/server";
+import { bookingSchema } from "@/lib/bookingSchema";
+import { calculatePrice } from "@/lib/pricing";
+import { supabaseAdmin } from "@/lib/supabaseAdmin";
+import { resend, getMailFrom, getNotifyTo } from "@/lib/resendClient";
+import { guestNewBookingEmail, ownerNewBookingEmail } from "@/lib/emailTemplates";
+
+export async function POST(req: Request) {
+  const body = await req.json().catch(() => null);
+  const parsed = bookingSchema.safeParse(body);
+
+  if (!parsed.success) {
+    return NextResponse.json({ ok: false, error: "Niepoprawne dane.", details: parsed.error.flatten() }, { status: 400 });
+  }
+
+  const { name, email, phone, notes, checkIn, checkOut, guests, pets } = parsed.data;
+
+  // wycena
+  const quote = calculatePrice({
+    checkIn,
+    checkOut,
+    guests: guests ?? 1,
+    pets: pets ?? false,
+  });
+
+  if (!quote.ok) {
+    return NextResponse.json(
+      { ok: false, message: quote.message ?? "Nie udało się wyliczyć ceny." },
+      { status: 400 }
+    );
+  }
+
+  // zapis do bazy + zwrot wiersza
+  const { data: inserted, error: insErr } = await supabaseAdmin
+    .from("bookings")
+    .insert([
+      {
+        name,
+        email,
+        phone: phone || null,
+        check_in: checkIn,
+        check_out: checkOut,
+        notes: notes || null,
+        status: "pending",
+
+        guests: quote.guests,
+        pets: quote.pets,
+        total_price: quote.breakdown.total,
+        currency: quote.currency,
+        price_breakdown: quote.breakdown,
+      },
+    ])
+    .select("name,email,phone,check_in,check_out,guests,pets,total_price,currency,notes,status")
+    .single();
+
+  if (insErr) {
+    return NextResponse.json({ ok: false, error: insErr.message }, { status: 500 });
+  }
+
+  // maile (nie blokują rezerwacji)
+  try {
+    const from = getMailFrom();
+    const notifyTo = getNotifyTo();
+
+    const bookingData = {
+      name: inserted.name,
+      email: inserted.email,
+      phone: inserted.phone,
+      checkIn: inserted.check_in,
+      checkOut: inserted.check_out,
+      guests: inserted.guests,
+      pets: inserted.pets,
+      total: inserted.total_price,
+      currency: inserted.currency,
+      notes: inserted.notes,
+      status: inserted.status,
+    };
+
+    if (resend) {
+      // mail do gościa: Reply-To ustawiamy na Ciebie (BOOKING_NOTIFY_TO), żeby klient odpowiadał do Ciebie
+      const guest = guestNewBookingEmail(bookingData);
+      await resend.emails.send({
+        from,
+        to: inserted.email,
+        subject: guest.subject,
+        html: guest.html,
+        text: guest.text,
+        replyTo: notifyTo || undefined,
+      });
+
+      // mail do właściciela: Reply-To ustawiamy na mail gościa, żebyś mogła odpisać jednym kliknięciem
+      if (notifyTo) {
+        const owner = ownerNewBookingEmail(bookingData);
+        await resend.emails.send({
+          from,
+          to: notifyTo,
+          subject: owner.subject,
+          html: owner.html,
+          text: owner.text,
+          replyTo: inserted.email,
+        });
+      }
+    } else {
+      console.log("RESEND_API_KEY not set — skipping email sending.");
+    }
+  } catch (e) {
+    console.log("Email sending failed (booking still created):", e);
+  }
+
+  return NextResponse.json({ ok: true });
+}
