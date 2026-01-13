@@ -3,8 +3,9 @@ import { supabaseAdmin } from "@/lib/supabaseAdmin";
 import { resend, getMailFrom } from "@/lib/resendClient";
 import { guestStatusEmail } from "@/lib/emailTemplates";
 
-export async function PATCH(req: Request, { params }: { params: { id: string } }) {
-  const { id } = await params;
+export async function PATCH(req: NextRequest, context: { params: Promise<{ id: string }> }) {
+  const { id } = await context.params;
+
   const body = await req.json().catch(() => null);
   const action = body?.action as "confirm" | "cancel" | undefined;
 
