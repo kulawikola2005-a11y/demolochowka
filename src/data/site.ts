@@ -24,7 +24,7 @@ export const site = {
   },
 
   // mapka (MapSection)
-  mapEmbedUrl: "{URL}",
+  mapEmbedUrl: "https://www.google.com/maps?q=Krynica-Zdr%C3%B3j%20%28adres%20po%20potwierdzeniu%29&output=embed",
 
   // fakty (u Ciebie 1 łazienka ✅)
   quickFacts: [
