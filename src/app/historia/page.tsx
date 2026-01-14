@@ -1,10 +1,8 @@
 import Link from "next/link";
-import SiteHeader from "@/components/SiteHeader";
 
 export default function HistoriaPage() {
   return (
     <main className="bg-stone-50 min-h-screen pt-28">
-      <SiteHeader />
 
       <section className="container-page section-pad">
         <div className="card-soft p-7 md:p-10">
