@@ -10,20 +10,18 @@ import FooterSection from "@/components/sections/FooterSection";
 export default function Home() {
   return (
     <div className="bg-stone-50">
-      {/* Hero full-width */}
       <GonnaHero />
 
-      {/* Reszta w kontenerze */}
       <main className="mx-auto max-w-6xl px-4">
         <GonnaAbout />
         <MosaicGallery />
         <StarReviews />
         <CTASection />
         <GonnaContact />
-        <MapSection />
       </main>
 
-      {/* Footer zwykle full-width */}
+      <MapSection />
+
       <FooterSection />
     </div>
   );
