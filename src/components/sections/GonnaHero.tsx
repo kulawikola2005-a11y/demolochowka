@@ -23,9 +23,9 @@ export default function GonnaHero() {
   }, [slides.length]);
 
   return (
-    <section className="mx-auto max-w-6xl px-4 pt-8">
+    <section className="w-full max-w-none px-0 pt-0">
       <div className="relative overflow-hidden rounded-3xl border bg-black">
-        <div className="relative h-[520px]">
+        <div className="relative h-[calc(100svh-6rem)] min-h-[520px]">
           {slides.map((src, i) => (
             <div
               key={src}

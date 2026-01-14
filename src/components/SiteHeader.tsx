@@ -20,10 +20,10 @@ export default function SiteHeader() {
   // na podstronach zawsze solid (żeby nie było “czarnego/transparentnego” na treści)
   const solid = !onHome || scrolled;
 
-  const textTop = "text-white/90 hover:text-white";
+  const textTop = "text-neutral-900/90 hover:text-neutral-900";
   const textSolid = "text-neutral-800 hover:text-[color:var(--accent)]";
 
-  const activePillTop = "bg-white/15 border border-white/20 text-white";
+  const activePillTop = "bg-neutral-900/5 border border-neutral-900/10 text-neutral-900";
   const activePillSolid = "bg-white/70 border border-[color:var(--border)] text-neutral-900";
 
   return (
@@ -39,7 +39,7 @@ export default function SiteHeader() {
             href="/"
             className={[
               "font-semibold tracking-tight text-xl",
-              solid ? "text-neutral-900" : "text-white",
+              "text-neutral-900",
             ].join(" ")}
             style={{ letterSpacing: "0.02em" }}
           >
