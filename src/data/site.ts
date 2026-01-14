@@ -6,23 +6,30 @@ export const site = {
 
   aboutTitle: "O domu",
   aboutText:
-    "Domek w Krynicy to komfortowy dom w spokojnej okolicy, stworzony do odpoczynku o każdej porze roku. Jasne wnętrza, wygodny układ i pełne wyposażenie sprawiają, że pobyt jest przyjemny zarówno na weekend, jak i na dłużej. To miejsce dla par, rodzin i małych grup — na górskie wędrówki, zimowe wyjazdy na narty albo po prostu spokojny reset z dala od miasta. Dbamy o standard, czystość i detale, a kontakt przed przyjazdem jest prosty i szybki. Rezerwacja zajmuje chwilę, a potwierdzenie terminu wysyłamy mailowo.",
+    "Domek „Lochówka” powstał jeszcze przed II wojną światową. Przez lata widział wiele: zmieniające się pory, ludzi, mody i zwyczaje Krynicy. Od tamtego czasu jest w naszej rodzinie i właśnie dlatego ma dla nas szczególną wartość — to nie tylko miejsce na mapie, ale dom z pamięcią i ciągłością.\n\nPołożony wysoko, wśród natury i z dala od zgiełku, daje dokładnie to, czego dziś szuka się najczęściej: ciszę, przestrzeń i prawdziwy oddech. To miejsce, w którym poranki smakują inaczej, a wieczory przychodzą spokojniej — w rytmie gór.\n\nKiedy przyszło do odnowienia, wiedzieliśmy jedno: chcemy przywrócić mu komfort, ale nie odebrać charakteru. Remont był „z szacunkiem” — odświeżyliśmy to, co wymagało uwagi oraz dopracowaliśmy wygodę i wyposażenie. Lecz to wciąż jest dom, który wiele przeżył — i właśnie dlatego ma w sobie spokój, który czuć od progu.\n\nW Krynicy historia jest częścią codzienności. W naszej rodzinie istnieje też opowieść, że kilka razy zatrzymał się tu na noc Nikifor — malarz prymitywista, którego twórczość na stałe wpisała się w ducha tego miejsca. Traktujemy to jak piękną część lokalnego przekazu i ukłon w stronę dawnej Krynicy.\n\nDziś dom jest gotowy na nowe wspomnienia — Wasze: spokojne poranki, górskie wędrówki, zimowe wyjazdy i wieczory, w których naprawdę można zwolnić.",
 
   whatsapp: "+48 518 808 397",
   email: "twoj@email.pl",
   addressLabel: "Krynica-Zdrój (adres po potwierdzeniu)",
+  mapEmbedUrl: "",
 
-  mapEmbedUrl: "https://www.google.com/maps?q=Krynica-Zdr%C3%B3j&output=embed",
-
-  // ✅ potrzebne dla GonnaAbout (quickFacts.map)
   quickFacts: [
     { k: "Miejsca", v: "6–8 osób" },
     { k: "Sypialnie", v: "3" },
-    { k: "Łazienki", v: "2" },
-    { k: "Parking", v: "na miejscu" },
+    { k: "Łazienka", v: "1" },
+    { k: "Zwierzęta", v: "tak/warunkowo" },
   ],
 
-  // ✅ potrzebne dla MosaicGallery (gallery.map)
+  // ✅ DODANE – żeby AmenitiesSection się kompilował
+  amenities: [
+    { title: "W pełni wyposażona kuchnia", desc: "Zastawa, sprzęty, miejsce do gotowania i wspólnych posiłków." },
+    { title: "Szybkie Wi-Fi", desc: "Do pracy zdalnej i streamingu (jeśli potrzebujesz)." },
+    { title: "Parking przy domu", desc: "Wygodny dojazd i miejsce na auto." },
+    { title: "Położenie wśród natury", desc: "Cisza, przestrzeń i bliskość lasu." },
+    { title: "Komfort cały rok", desc: "Ciepło zimą i przyjemnie latem — dom przygotowany na każdą porę." },
+    { title: "Kontakt i rezerwacja", desc: "Szybka komunikacja, potwierdzenie terminu mailowo." },
+  ],
+
   gallery: [
     "/gallery/01.jpg",
     "/gallery/02.jpg",
@@ -32,7 +39,6 @@ export const site = {
     "/gallery/06.jpg",
   ],
 
-  // ✅ potrzebne dla StarReviews (reviews.map)
   reviews: [
     { name: "Adam", city: "Wrocław", text: "Klimat miejsca niesamowity, dom świetnie urządzony..." },
     { name: "Karolina", city: "Wrocław", text: "Petarda! Jestem totalnie zakochana..." },
