@@ -8,6 +8,7 @@ export default function GonnaAbout() {
 
   // Weź tekst "o domu" z site (dopasuj klucz, jeśli u Ciebie nazywa się inaczej)
   const aboutText =
+    (site as any).aboutTextShort ??
     (site as any).aboutText ??
     (site as any).about ??
     (site as any).description ??

@@ -10,8 +10,12 @@ export const site = {
   heroImage: "/gallery/01.jpg",
 
   aboutTitle: "O domu",
-  aboutText:
-    "Domek „Lochówka” powstał jeszcze przed II wojną światową. Przez lata widział wiele: zmieniające się pory, ludzi, mody i zwyczaje Krynicy. Od tamtego czasu jest w naszej rodzinie i właśnie dlatego ma dla nas szczególną wartość — to nie tylko miejsce na mapie, ale dom z pamięcią i ciągłością.\n\nPołożony wysoko, wśród natury i z dala od zgiełku, daje dokładnie to, czego dziś szuka się najczęściej: ciszę, przestrzeń i prawdziwy oddech. To miejsce, w którym poranki smakują inaczej, a wieczory przychodzą spokojniej — w rytmie gór.\n\nKiedy przyszło do odnowienia, wiedzieliśmy jedno: chcemy przywrócić mu komfort, ale nie odebrać charakteru. Remont był „z szacunkiem” — odświeżyliśmy to, co wymagało uwagi oraz dopracowaliśmy wygodę i wyposażenie. Lecz to wciąż jest dom, który wiele przeżył — i właśnie dlatego ma w sobie spokój, który czuć od progu.\n\nW Krynicy historia jest częścią codzienności. W naszej rodzinie istnieje też opowieść, że kilka razy zatrzymał się tu na noc Nikifor — malarz prymitywista, którego twórczość na stałe wpisała się w ducha tego miejsca. Traktujemy to jak piękną część lokalnego przekazu i ukłon w stronę dawnej Krynicy.\n\nDziś dom jest gotowy na nowe wspomnienia — Wasze: spokojne poranki, górskie wędrówki, zimowe wyjazdy i wieczory, w których naprawdę można zwolnić.",
+
+aboutTextShort:
+  "Domek „Lochówka” powstał jeszcze przed II wojną światową. Przez lata widział wiele…",
+
+aboutText:
+  "Lochówka to klimatyczny domek w Krynicy-Zdroju — ciepły, wygodny i urządzony tak, żeby od razu zwolnić tempo. Idealny na weekend we dwoje albo wyjazd z rodziną: odpoczynek, natura i spokój, a jednocześnie blisko do atrakcji i szlaków. Jeśli lubisz miejsca z charakterem — jesteś w dobrym miejscu.\n\nDomek „Lochówka” powstał jeszcze przed II wojną światową. Przez lata widział wiele: ...",
 
   // kontakt (dla różnych komponentów)
   whatsapp: "+48 518 808 397",
