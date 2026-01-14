@@ -30,6 +30,14 @@ export const site = {
     { title: "Kontakt i rezerwacja", desc: "Szybka komunikacja, potwierdzenie terminu mailowo." },
   ],
 
+  
+  attractions: [
+    { title: "Deptak i pijalnie wód", desc: "Spacer po centrum Krynicy i klimat uzdrowiska.", time: "ok. 10–15 min autem" },
+    { title: "Jaworzyna Krynicka", desc: "Gondola, widoki, trasy piesze i narciarskie.", time: "ok. 15–25 min" },
+    { title: "Wieża widokowa (Słotwiny)", desc: "Drewniana ścieżka w koronach drzew + panorama.", time: "ok. 15–25 min" },
+    { title: "Szlaki i lasy tuż obok", desc: "Najlepsze na poranny reset i krótkie wyjścia.", time: "na miejscu" },
+  ],
+
   gallery: [
     "/gallery/01.jpg",
     "/gallery/02.jpg",
