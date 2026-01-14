@@ -43,7 +43,7 @@ export default function SiteHeader() {
             ].join(" ")}
             style={{ letterSpacing: "0.02em" }}
           >
-            LOCHÓWKA
+            <span className="text-neutral-900">LOCHÓWKA</span>
           </Link>
 
           <nav className="flex-1 flex justify-center">
