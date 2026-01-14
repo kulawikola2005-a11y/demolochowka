@@ -11,7 +11,9 @@ export const site = {
 
   aboutTitle: "O domu",
 
-aboutTextShort: "Lochówka to przytulny domek w Krynicy-Zdroju — ciepły, wygodny i urządzony tak, żeby od razu zwolnić tempo. Idealny na weekend we dwoje albo spokojny wyjazd rodzinny: dużo spokoju, natura i blisko szlaków.","Domek „Lochówka” powstał jeszcze przed II wojną światową. Przez lata widział wiele…",
+aboutTextShort: "Lochówka to przytulny domek w Krynicy-Zdroju — ciepły, wygodny i urządzony tak, żeby od razu zwolnić tempo. Idealny na weekend we dwoje albo spokojny wyjazd rodzinny: natura, cisza i blisko do szlaków oraz atrakcji.",
+
+  
 
 aboutText:
   "Lochówka to klimatyczny domek w Krynicy-Zdroju — ciepły, wygodny i urządzony tak, żeby od razu zwolnić tempo. Idealny na weekend we dwoje albo wyjazd z rodziną: odpoczynek, natura i spokój, a jednocześnie blisko do atrakcji i szlaków. Jeśli lubisz miejsca z charakterem — jesteś w dobrym miejscu.\n\nDomek „Lochówka” powstał jeszcze przed II wojną światową. Przez lata widział wiele: ...",

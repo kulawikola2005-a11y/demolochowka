@@ -14,7 +14,6 @@ export default function GonnaAbout() {
     <section id="o-domu" className="full-bleed">
       <div className="mx-auto max-w-7xl px-6 py-14 md:py-20">
         <div className="grid gap-10 md:grid-cols-2 md:items-center">
-          {/* LEWA: tekst */}
           <div>
             <h2 className="text-5xl md:text-6xl font-semibold" style={{ fontFamily: "var(--font-serif)" }}>
               {site.aboutTitle}
@@ -26,18 +25,20 @@ export default function GonnaAbout() {
 
             <div className="mt-10 flex gap-3">
               <Link
-                href="/historia"className="rounded-full border border-neutral-300 bg-white px-8 py-3 text-sm font-medium text-neutral-900 hover:bg-neutral-50"
-                style={{ borderColor: "var(--border)" }}
+                href="/historia"
+                className="rounded-full border border-neutral-300 bg-white px-8 py-3 text-sm font-medium text-neutral-900 hover:bg-neutral-50"
               >
                 Więcej
               </Link>
-              <Link href="/rezerwacja" className="rounded-full bg-emerald-700 px-8 py-3 text-sm font-medium text-white hover:bg-emerald-800">
+              <Link
+                href="/rezerwacja"
+                className="rounded-full bg-emerald-700 px-8 py-3 text-sm font-medium text-white hover:bg-emerald-800"
+              >
                 Rezerwuj
               </Link>
             </div>
           </div>
 
-          {/* PRAWA: duże zdjęcie */}
           <div className="relative">
             <div
               className="relative w-full overflow-hidden rounded-[36px] border"
