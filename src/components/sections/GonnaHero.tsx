@@ -31,7 +31,7 @@ export default function GonnaHero() {
         <div className="relative h-[560px] md:h-[680px]">
           {slides.map((src, i) => (
             <div
-              key={src}
+              key={i}
               className="absolute inset-0"
               style={{ opacity: i === idx ? 1 : 0, transition: "opacity 900ms ease" }}
             >
