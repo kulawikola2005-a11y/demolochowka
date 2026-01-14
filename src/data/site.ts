@@ -24,7 +24,7 @@ export const site = {
   },
 
   // mapka (MapSection)
-  mapEmbedUrl: "",
+  mapEmbedUrl: "{URL}",
 
   // fakty (u Ciebie 1 łazienka ✅)
   quickFacts: [
