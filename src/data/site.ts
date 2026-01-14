@@ -1,6 +1,7 @@
 export const site = {
   name: "Domek w Krynicy",
   location: "Krynica-Zdrój",
+  tagline: "Spokojny domek na zboczu, wśród natury — idealny na reset o każdej porze roku.",
   welcome: "Witamy w",
   heroImage: "/gallery/01.jpg",
 
