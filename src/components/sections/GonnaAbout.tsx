@@ -26,13 +26,12 @@ export default function GonnaAbout() {
 
             <div className="mt-10 flex gap-3">
               <Link
-                href="/historia"
-                className="rounded-full border px-8 py-3 text-sm font-medium"
+                href="/historia"className="rounded-full border border-neutral-300 bg-white px-8 py-3 text-sm font-medium text-neutral-900 hover:bg-neutral-50"
                 style={{ borderColor: "var(--border)" }}
               >
                 Więcej
               </Link>
-              <Link href="/rezerwacja" className="rounded-full px-8 py-3 text-sm font-medium btn-primary">
+              <Link href="/rezerwacja" className="rounded-full bg-emerald-700 px-8 py-3 text-sm font-medium text-white hover:bg-emerald-800">
                 Rezerwuj
               </Link>
             </div>
