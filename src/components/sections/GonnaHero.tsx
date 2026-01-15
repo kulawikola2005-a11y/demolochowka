@@ -35,6 +35,7 @@ export default function GonnaHero() {
           ))}
 
           <div className="absolute inset-0 bg-black/40" />
+          <div className="absolute inset-0 pointer-events-none" style={{ background: "radial-gradient(700px 360px at 50% 45%, rgba(255,255,255,.18), transparent 60%)" }} />
 
           {/* Wszystko na środku */}
           <div className="absolute inset-0 flex items-center justify-center">
