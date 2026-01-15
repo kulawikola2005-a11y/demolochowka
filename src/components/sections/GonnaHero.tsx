@@ -34,7 +34,7 @@ export default function GonnaHero() {
             </div>
           ))}
 
-          <div className="absolute inset-0 bg-black/40" />
+          <div className="absolute inset-0 bg-black/55" />
           <div className="absolute inset-0 pointer-events-none" style={{ background: "radial-gradient(700px 360px at 50% 45%, rgba(255,255,255,.18), transparent 60%)" }} />
 
           {/* Wszystko na środku */}
@@ -49,14 +49,14 @@ export default function GonnaHero() {
                   <Link href="/rezerwacja" className="btn-primary">
                     REZERWUJ
                   </Link>
-                  <a href="#galeria" className="rounded-2xl border border-neutral-900/15 bg-white/40 px-6 py-3 text-sm font-medium text-neutral-900 hover:bg-white/60">
+                  <a href="#galeria" className="rounded-2xl border border-neutral-900/15 bg-white/40 px-6 py-3 text-sm font-medium text-neutral-900 hover:bg-white/92">
                     Zobacz zdjęcia
                   </a>
                 </div>
 
                 {/* Kropki na środku */}
                 {slides.length > 1 && (
-                  <div className="mt-5 flex justify-center gap-2">
+                  <div className="mt-5 mx-auto flex w-fit gap-2 rounded-full border border-black/10 bg-white/75 px-4 py-2 backdrop-blur">
                     {slides.map((_, i) => (
                       <button
                         key={i}
@@ -64,8 +64,8 @@ export default function GonnaHero() {
                         onClick={() => setIdx(i)}
                         className="h-3 w-3 rounded-full"
                         style={{
-                          background: i === idx ? "var(--accent)" : "rgba(0,0,0,.25)",
-                          border: "1px solid rgba(0,0,0,.15)",
+                          background: i === idx ? "var(--accent)" : "rgba(0,0,0,.30)",
+                          border: "1px solid rgba(0,0,0,.22)",
                         }}
                         aria-label={`Pokaż zdjęcie ${i + 1}`}
                       />
