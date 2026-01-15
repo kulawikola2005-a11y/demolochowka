@@ -34,7 +34,7 @@ export default function GonnaHero() {
             </div>
           ))}
 
-          <div className="absolute inset-0 bg-black/30" />
+          <div className="absolute inset-0 bg-black/40" />
 
           {/* Wszystko na środku */}
           <div className="absolute inset-0 flex items-center justify-center">
