@@ -34,7 +34,7 @@ export default function GonnaHero() {
             </div>
           ))}
 
-          <div className="absolute inset-0 bg-black/40" />
+          <div className="absolute inset-0 bg-red-500/60" />
           <div className="absolute inset-0 pointer-events-none" style={{ background: "radial-gradient(700px 360px at 50% 45%, rgba(255,255,255,.18), transparent 60%)" }} />
 
           {/* Wszystko na środku */}
@@ -49,7 +49,7 @@ export default function GonnaHero() {
                   <Link href="/rezerwacja" className="btn-primary">
                     REZERWUJ
                   </Link>
-                  <a href="#galeria" className="rounded-2xl border border-neutral-900/15 bg-white/40 px-6 py-3 text-sm font-medium text-neutral-900 hover:bg-white/60">
+                  <a href="#galeria" className="rounded-2xl border border-neutral-900/15 bg-white/40 px-6 py-3 text-sm font-medium text-neutral-900 hover:bg-yellow-200">
                     Zobacz zdjęcia
                   </a>
                 </div>
