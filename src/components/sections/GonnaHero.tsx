@@ -30,33 +30,36 @@ export default function GonnaHero() {
               className="absolute inset-0"
               style={{ opacity: i === idx ? 1 : 0, transition: "opacity 900ms ease" }}
             >
-              <Image src={src} alt={site.name} fill className="object-cover opacity-90" priority={i === 0} />
+              <Image src={src} alt={site.name} fill className="object-cover opacity-95" priority={i === 0} />
             </div>
           ))}
 
-          <div className="absolute inset-0 bg-black/55" />
-          <div className="absolute inset-0 pointer-events-none" style={{ background: "radial-gradient(700px 360px at 50% 45%, rgba(255,255,255,.18), transparent 60%)" }} />
+          {/* mocniejsza warstwa na zdjęciu = lepsza czytelność */}
+          <div className="absolute inset-0 bg-black/60" />
 
           {/* Wszystko na środku */}
           <div className="absolute inset-0 flex items-center justify-center">
             <div className="p-6 md:p-10 w-full">
-              <div className="mx-auto max-w-3xl text-center rounded-3xl border border-white/20 bg-white/10 backdrop-blur-md p-6 md:p-8 shadow-lg">
+              <div className="mx-auto max-w-3xl text-center rounded-[32px] border border-white/55 bg-white/95 shadow-2xl ring-1 ring-black/10 p-6 md:p-8">
                 <p className="text-sm uppercase tracking-wider text-neutral-900/60">{site.welcome}</p>
-                <h1 className="mt-2 text-4xl md:text-5xl font-semibold">{site.name}</h1>
+                <h1 className="mt-2 text-4xl md:text-5xl font-semibold text-neutral-900">{site.name}</h1>
                 <p className="mt-2 text-neutral-900/60">{site.location}</p>
 
                 <div className="mt-6 flex flex-wrap gap-3 justify-center">
                   <Link href="/rezerwacja" className="btn-primary">
                     REZERWUJ
                   </Link>
-                  <a href="#galeria" className="rounded-2xl border border-neutral-900/15 bg-white/40 px-6 py-3 text-sm font-medium text-neutral-900 hover:bg-white/92">
+                  <a
+                    href="#galeria"
+                    className="rounded-2xl border border-neutral-900/15 bg-white/70 px-6 py-3 text-sm font-medium text-neutral-900 hover:bg-white"
+                  >
                     Zobacz zdjęcia
                   </a>
                 </div>
 
-                {/* Kropki na środku */}
+                {/* Kropki w “pastylce” żeby się NIE zlewały */}
                 {slides.length > 1 && (
-                  <div className="mt-5 mx-auto flex w-fit gap-2 rounded-full border border-black/10 bg-white/75 px-4 py-2 backdrop-blur">
+                  <div className="mt-5 mx-auto flex w-fit gap-2 rounded-full border border-black/10 bg-white/85 px-4 py-2">
                     {slides.map((_, i) => (
                       <button
                         key={i}
@@ -64,8 +67,8 @@ export default function GonnaHero() {
                         onClick={() => setIdx(i)}
                         className="h-3 w-3 rounded-full"
                         style={{
-                          background: i === idx ? "var(--accent)" : "rgba(0,0,0,.30)",
-                          border: "1px solid rgba(0,0,0,.22)",
+                          background: i === idx ? "var(--accent)" : "rgba(0,0,0,.28)",
+                          border: "1px solid rgba(0,0,0,.18)",
                         }}
                         aria-label={`Pokaż zdjęcie ${i + 1}`}
                       />
