@@ -40,7 +40,7 @@ export default function GonnaHero() {
           {/* Wszystko na środku */}
           <div className="absolute inset-0 flex items-center justify-center">
             <div className="p-6 md:p-10 w-full">
-              <div className="mx-auto max-w-3xl text-center rounded-[32px] border border-white/55 bg-white/95 shadow-2xl ring-1 ring-black/10 p-6 md:p-8">
+              <div className="mx-auto max-w-3xl text-center rounded-[32px] border border-black/10 bg-white shadow-2xl ring-1 ring-black/10 p-6 md:p-8">
                 <p className="text-sm uppercase tracking-wider text-neutral-900/60">{site.welcome}</p>
                 <h1 className="mt-2 text-4xl md:text-5xl font-semibold text-neutral-900">{site.name}</h1>
                 <p className="mt-2 text-neutral-900/60">{site.location}</p>
@@ -51,7 +51,7 @@ export default function GonnaHero() {
                   </Link>
                   <a
                     href="#galeria"
-                    className="rounded-2xl border border-neutral-900/15 bg-white/70 px-6 py-3 text-sm font-medium text-neutral-900 hover:bg-white"
+                    className="rounded-2xl border border-neutral-900/15 bg-white px-6 py-3 text-sm font-medium text-neutral-900 hover:bg-white"
                   >
                     Zobacz zdjęcia
                   </a>
@@ -59,7 +59,7 @@ export default function GonnaHero() {
 
                 {/* Kropki w “pastylce” żeby się NIE zlewały */}
                 {slides.length > 1 && (
-                  <div className="mt-5 mx-auto flex w-fit gap-2 rounded-full border border-black/10 bg-white/85 px-4 py-2">
+                  <div className="mt-5 mx-auto flex w-fit gap-2 rounded-full border border-black/10 bg-white px-4 py-2">
                     {slides.map((_, i) => (
                       <button
                         key={i}
