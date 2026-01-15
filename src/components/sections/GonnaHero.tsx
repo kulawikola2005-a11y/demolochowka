@@ -65,7 +65,7 @@ export default function GonnaHero() {
                         key={i}
                         type="button"
                         onClick={() => setIdx(i)}
-                        className="h-3 w-3 rounded-full"
+                        className="h-2 w-2 rounded-full"
                         style={{
                           background: i === idx ? "var(--accent)" : "rgba(0,0,0,.28)",
                           border: "1px solid rgba(0,0,0,.18)",
