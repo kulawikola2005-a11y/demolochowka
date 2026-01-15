@@ -34,21 +34,21 @@ export default function GonnaHero() {
             </div>
           ))}
 
-          <div className="absolute inset-0 bg-black/45" />
+          <div className="absolute inset-0 bg-black/30" />
 
           {/* Wszystko na środku */}
           <div className="absolute inset-0 flex items-center justify-center">
             <div className="p-6 md:p-10 w-full">
               <div className="mx-auto max-w-3xl text-center rounded-3xl border border-white/20 bg-white/10 backdrop-blur-md p-6 md:p-8 shadow-lg">
-                <p className="text-sm uppercase tracking-wider text-muted">{site.welcome}</p>
+                <p className="text-sm uppercase tracking-wider text-neutral-900/60">{site.welcome}</p>
                 <h1 className="mt-2 text-4xl md:text-5xl font-semibold">{site.name}</h1>
-                <p className="mt-2 text-muted">{site.location}</p>
+                <p className="mt-2 text-neutral-900/60">{site.location}</p>
 
                 <div className="mt-6 flex flex-wrap gap-3 justify-center">
                   <Link href="/rezerwacja" className="btn-primary">
                     REZERWUJ
                   </Link>
-                  <a href="#galeria" className="btn-ghost">
+                  <a href="#galeria" className="rounded-2xl border border-neutral-900/15 bg-white/40 px-6 py-3 text-sm font-medium text-neutral-900 hover:bg-white/60">
                     Zobacz zdjęcia
                   </a>
                 </div>
@@ -63,8 +63,8 @@ export default function GonnaHero() {
                         onClick={() => setIdx(i)}
                         className="h-3 w-3 rounded-full"
                         style={{
-                          background: i === idx ? "var(--accent)" : "rgba(255,255,255,.55)",
-                          border: "1px solid rgba(255,255,255,.35)",
+                          background: i === idx ? "var(--accent)" : "rgba(0,0,0,.25)",
+                          border: "1px solid rgba(0,0,0,.15)",
                         }}
                         aria-label={`Pokaż zdjęcie ${i + 1}`}
                       />
