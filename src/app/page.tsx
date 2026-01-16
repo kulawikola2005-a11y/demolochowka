@@ -6,6 +6,7 @@ import CTASection from "@/components/sections/CTASection";
 import GonnaContact from "@/components/sections/GonnaContact";
 import MapSection from "@/components/sections/MapSection";
 import FooterSection from "@/components/sections/FooterSection";
+import AttractionsSection from "@/components/sections/AttractionsSection";
 
 export default function Home() {
   return (
@@ -15,6 +16,7 @@ export default function Home() {
       <main className="mx-auto max-w-6xl px-4">
         <GonnaAbout />
         <MosaicGallery />
+        <AttractionsSection />
         <StarReviews />
         <CTASection />
         <GonnaContact />

@@ -1,32 +1,40 @@
-"use client";
-
 import { site } from "@/data/site";
-import { motion } from "framer-motion";
+
+type Attraction = {
+  name: string;
+  desc?: string;
+  time?: string;
+};
 
 export default function AttractionsSection() {
+  const title = (site as any).attractionsTitle ?? "Atrakcje w okolicy";
+  const items = ((site as any).attractions ?? []) as Attraction[];
+
+  if (!items.length) return null;
+
   return (
     <section id="okolica" className="mx-auto max-w-6xl px-4 py-10">
-      <motion.div
-        initial={{ opacity: 0, y: 12 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.5 }}
-      >
-        <h2 className="text-2xl font-semibold">Atrakcje w okolicy</h2>
-        <p className="mt-2 text-gray-600">Kilka rzeczy, które warto zobaczyć.</p>
+      <h2 className="text-2xl font-semibold">{title}</h2>
+      <p className="mt-2 text-muted">Najciekawsze miejsca na spacer, widoki i szybki plan dnia.</p>
 
-        <div className="mt-6 grid gap-4 md:grid-cols-2">
-          {site.attractions.map((x) => (
-            <div key={x.title} className="rounded-2xl border p-5">
-              <div className="flex items-center justify-between gap-4">
-                <h3 className="font-medium">{x.title}</h3>
-                <span className="text-sm text-gray-600">{x.time}</span>
-              </div>
-              <p className="mt-2 text-sm text-gray-600">{x.desc}</p>
+      <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        {items.map((a, i) => (
+          <div key={i} className="card-soft p-5">
+            <div className="flex items-start justify-between gap-3">
+              <h3 className="text-base font-semibold">{a.name}</h3>
+              {a.time ? (
+                <span
+                  className="rounded-full border px-2.5 py-1 text-xs text-neutral-700"
+                  style={{ borderColor: "var(--border)" }}
+                >
+                  {a.time}
+                </span>
+              ) : null}
             </div>
-          ))}
-        </div>
-      </motion.div>
+            {a.desc ? <p className="mt-2 text-sm text-neutral-800/75">{a.desc}</p> : null}
+          </div>
+        ))}
+      </div>
     </section>
   );
 }
