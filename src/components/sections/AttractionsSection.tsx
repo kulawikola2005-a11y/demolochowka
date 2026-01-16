@@ -1,10 +1,11 @@
 import { site } from "@/data/site";
 
 type Attraction = {
-  name: string;
+  name?: string;
+  title?: string;
   desc?: string;
   time?: string;
-  query?: string; // do google maps
+  query?: string;
 };
 
 const DEFAULT_ATTRACTIONS: Attraction[] = [
@@ -31,13 +32,13 @@ export default function AttractionsSection() {
 
       <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {items.map((a, i) => {
-          const q = encodeURIComponent(a.query ?? `${a.name}, Krynica-Zdrój`);
+          const q = encodeURIComponent(a.query ?? `${(a.name ?? a.title ?? "Atrakcja")}, Krynica-Zdrój`);
           const maps = `https://www.google.com/maps/search/?api=1&query=${q}`;
 
           return (
             <div key={i} className="card-soft p-5">
               <div className="flex items-start justify-between gap-3">
-                <h3 className="text-base font-semibold">{a.name}</h3>
+                <h3 className="text-base font-semibold">{(a.name ?? a.title ?? "Atrakcja")}</h3>
                 {a.time ? (
                   <span
                     className="rounded-full border px-2.5 py-1 text-xs text-neutral-700"

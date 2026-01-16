@@ -53,20 +53,20 @@ aboutText:
 
   // udogodnienia (AmenitiesSection)
   amenities: [
-    { title: "W pełni wyposażona kuchnia", desc: "Zastawa i sprzęty — wygodnie na weekend i dłużej." },
-    { title: "Wi-Fi", desc: "Do pracy zdalnej i streamingu." },
-    { title: "Parking przy domu", desc: "Wygodny dojazd." },
-    { title: "Położenie wśród natury", desc: "Cisza, przestrzeń, skraj lasu." },
-    { title: "Komfort cały rok", desc: "Dom przygotowany na każdą porę roku." },
-    { title: "Prosta rezerwacja", desc: "Szybki kontakt, potwierdzenie mailowo." },
+    { name: "W pełni wyposażona kuchnia", desc: "Zastawa i sprzęty — wygodnie na weekend i dłużej." },
+    { name: "Wi-Fi", desc: "Do pracy zdalnej i streamingu." },
+    { name: "Parking przy domu", desc: "Wygodny dojazd." },
+    { name: "Położenie wśród natury", desc: "Cisza, przestrzeń, skraj lasu." },
+    { name: "Komfort cały rok", desc: "Dom przygotowany na każdą porę roku." },
+    { name: "Prosta rezerwacja", desc: "Szybki kontakt, potwierdzenie mailowo." },
   ],
 
   // atrakcje (AttractionsSection)
   attractions: [
-    { title: "Deptak i pijalnie wód", desc: "Spacer po centrum Krynicy i klimat uzdrowiska.", time: "ok. 10–15 min autem" },
-    { title: "Jaworzyna Krynicka", desc: "Gondola, widoki, trasy piesze i narciarskie.", time: "ok. 15–25 min" },
-    { title: "Wieża widokowa (Słotwiny)", desc: "Ścieżka w koronach drzew + panorama.", time: "ok. 15–25 min" },
-    { title: "Szlaki i lasy w okolicy", desc: "Idealne na poranny reset i krótkie wyjścia.", time: "na miejscu" },
+    { name: "Deptak i pijalnie wód", desc: "Spacer po centrum Krynicy i klimat uzdrowiska.", time: "ok. 10–15 min autem" },
+    { name: "Jaworzyna Krynicka", desc: "Gondola, widoki, trasy piesze i narciarskie.", time: "ok. 15–25 min" },
+    { name: "Wieża widokowa (Słotwiny)", desc: "Ścieżka w koronach drzew + panorama.", time: "ok. 15–25 min" },
+    { name: "Szlaki i lasy w okolicy", desc: "Idealne na poranny reset i krótkie wyjścia.", time: "na miejscu" },
   ],
 
   // galeria (MosaicGallery)
@@ -91,13 +91,13 @@ aboutText:
   ctaSecondary: { label: "Zobacz zdjęcia", href: "#galeria" },
 
   highlights: [
-    { title: "Prywatność i cisza", desc: "Miejsce na prawdziwy oddech." },
-    { title: "Blisko atrakcji", desc: "Szlaki, Jaworzyna, deptak." },
-    { title: "Wygodnie cały rok", desc: "Komfort niezależnie od sezonu." },
+    { name: "Prywatność i cisza", desc: "Miejsce na prawdziwy oddech." },
+    { name: "Blisko atrakcji", desc: "Szlaki, Jaworzyna, deptak." },
+    { name: "Wygodnie cały rok", desc: "Komfort niezależnie od sezonu." },
   ],
 
   story: {
-    title: "O miejscu",
+    name: "O miejscu",
     text: "Domek z historią, rodzinny klimat i spokój wysoko na zboczu — wśród natury.",
     image: "/gallery/03.jpg",
   },
