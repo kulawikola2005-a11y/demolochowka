@@ -53,37 +53,25 @@ export default function SiteHeader() {
                 Strona główna
               </Link>
 
-              <Link
-                href="/historia"
-                className={["transition", solid ? textSolid : textTop].join(" ")}
-              >
+              <Link href="/historia" className={["transition", solid ? textSolid : textTop].join(" ")}>
                 O nas <span className="opacity-80">▾</span>
               </Link>
 
-              <a
-                href="/#o-domu"
-                className={["transition", solid ? textSolid : textTop].join(" ")}
-              >
+              <a href="/#o-domu" className={["transition", solid ? textSolid : textTop].join(" ")}>
                 Dom <span className="opacity-80">▾</span>
               </a>
 
-              <Link
-                href="/atrakcje"
-                className={["transition", solid ? textSolid : textTop].join(" ")}
-              >
+              <Link href="/atrakcje" className={["transition", solid ? textSolid : textTop].join(" ")}>
                 Atrakcje
               </Link>
 
-              <a
-                href="/#kontakt"
-                className={["transition", solid ? textSolid : textTop].join(" ")}
-              >
+              <a href="/#kontakt" className={["transition", solid ? textSolid : textTop].join(" ")}>
                 Kontakt
               </a>
             </div>
           </nav>
 
-          {/* MOBILE: hamburger */}
+          {/* MOBILE */}
           <button
             type="button"
             className="md:hidden rounded-xl border border-black/10 bg-white/80 backdrop-blur px-3 py-2 text-sm"
@@ -96,31 +84,16 @@ export default function SiteHeader() {
           <div className="w-[120px] hidden md:block" />
         </div>
 
-        {/* MOBILE: panel */}
         {open && (
           <div className="md:hidden border-t border-black/10 bg-white/90 backdrop-blur">
             <div className="mx-auto max-w-6xl px-4 sm:px-6 py-4 grid gap-3 text-sm">
-              <Link href="/" onClick={() => setOpen(false)} className="py-2">
-                Strona główna
-              </Link>
-              <Link href="/historia" onClick={() => setOpen(false)} className="py-2">
-                O nas
-              </Link>
-              <a href="/#o-domu" onClick={() => setOpen(false)} className="py-2">
-                Dom
-              </a>
-              <Link href="/atrakcje" onClick={() => setOpen(false)} className="py-2">
-                Atrakcje
-              </Link>
-              <a href="/#kontakt" onClick={() => setOpen(false)} className="py-2">
-                Kontakt
-              </a>
+              <Link href="/" onClick={() => setOpen(false)} className="py-2">Strona główna</Link>
+              <Link href="/historia" onClick={() => setOpen(false)} className="py-2">O nas</Link>
+              <a href="/#o-domu" onClick={() => setOpen(false)} className="py-2">Dom</a>
+              <Link href="/atrakcje" onClick={() => setOpen(false)} className="py-2">Atrakcje</Link>
+              <a href="/#kontakt" onClick={() => setOpen(false)} className="py-2">Kontakt</a>
 
-              <Link
-                href="/rezerwacja"
-                onClick={() => setOpen(false)}
-                className="mt-2 btn-primary text-center"
-              >
+              <Link href="/rezerwacja" onClick={() => setOpen(false)} className="mt-2 btn-primary text-center">
                 Rezerwuj
               </Link>
             </div>
