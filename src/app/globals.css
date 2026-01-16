@@ -1,3 +1,10 @@
+/* Mobile safety: prevent horizontal overflow */
+html, body {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
