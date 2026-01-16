@@ -22,13 +22,13 @@ export default function AmenitiesSection() {
           {site.amenities.map((a, idx) => {
             const Icon = icons[idx % icons.length];
             return (
-              <div key={a.title} className="rounded-2xl border p-5">
+              <div key={a.name} className="rounded-2xl border p-5">
                 <div className="flex items-center gap-3">
                   <div className="rounded-xl border p-2">
                     <Icon />
                   </div>
                   <div>
-                    <h3 className="font-medium">{a.title}</h3>
+                    <h3 className="font-medium">{a.name}</h3>
                     <p className="text-sm text-gray-600">{a.desc}</p>
                   </div>
                 </div>

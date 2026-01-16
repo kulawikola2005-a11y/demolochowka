@@ -17,9 +17,9 @@ export default function AttractionsSection() {
 
         <div className="mt-6 grid gap-4 md:grid-cols-2">
           {site.attractions.map((x) => (
-            <div key={x.title} className="rounded-2xl border p-5">
+            <div key={x.name} className="rounded-2xl border p-5">
               <div className="flex items-center justify-between gap-4">
-                <h3 className="font-medium">{x.title}</h3>
+                <h3 className="font-medium">{x.name}</h3>
                 <span className="text-sm text-gray-600">{x.time}</span>
               </div>
               <p className="mt-2 text-sm text-gray-600">{x.desc}</p>
