@@ -11,6 +11,18 @@ export const site = {
 
   aboutTitle: "O domu",
 
+
+  attractionsTitle: "Atrakcje w Krynicy i okolicy",
+  attractions: [
+    { name: "Deptak i Pijalnia Główna", desc: "Spacer, wody mineralne i klimat uzdrowiska.", time: "5–10 min" },
+    { name: "Góra Parkowa (kolejka + wieża)", desc: "Widoki, trasy spacerowe, klasyk Krynicy.", time: "10–15 min" },
+    { name: "Jaworzyna Krynicka (kolej gondolowa)", desc: "Panoramy i szlaki latem, narty zimą.", time: "15–20 min" },
+    { name: "Wieża widokowa – Słotwiny Arena", desc: "Skywalk wśród drzew, świetne zdjęcia.", time: "10–15 min" },
+    { name: "Muzeum Nikifora", desc: "Sztuka i historia Krynicy.", time: "5–10 min" },
+    { name: "Szlaki i spacery (np. Huzary)", desc: "Lekkie trasy i dłuższe wyjścia w góry.", time: "zależnie" },
+    { name: "Tylicz", desc: "Szybki wypad obok Krynicy, opcje rodzinne.", time: "15–20 min" },
+    { name: "Popradzki Park Krajobrazowy", desc: "Natura i spokojne trasy.", time: "zależnie" },
+  ],
 aboutTextShort: "Lochówka to przytulny domek w Krynicy-Zdroju — ciepły, wygodny i urządzony tak, żeby od razu zwolnić tempo. Idealny na weekend we dwoje albo spokojny wyjazd rodzinny: natura, cisza i blisko do szlaków oraz atrakcji.",
 
   
