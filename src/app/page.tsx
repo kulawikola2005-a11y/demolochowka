@@ -13,7 +13,7 @@ export default function Home() {
     <div className="bg-stone-50">
       <GonnaHero />
 
-      <main className="mx-auto max-w-6xl px-4">
+      <main className="mx-auto max-w-6xl">
         <GonnaAbout />
         <MosaicGallery />
         <AttractionsSection />

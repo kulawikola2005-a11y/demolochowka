@@ -23,7 +23,7 @@ export default function GonnaHero() {
   return (
     <section className="w-full max-w-none px-0 pt-0">
       <div className="relative overflow-hidden rounded-none sm:rounded-3xl border-0 sm:border bg-black">
-        <div className="relative h-[calc(100svh-6rem)] min-h-[520px]">
+        <div className="relative h-[78svh] sm:h-[calc(100svh-6rem)] min-h-[440px]">
           {slides.map((src, i) => (
             <div
               key={`${src}-${i}`}
@@ -39,10 +39,10 @@ export default function GonnaHero() {
 
           {/* Wszystko na środku */}
           <div className="absolute inset-0 flex items-center justify-center">
-            <div className="p-4 sm:p-6 md:p-10 w-full">
-              <div className="mx-auto max-w-3xl text-center rounded-[32px] border border-black/10 bg-white shadow-2xl ring-1 ring-black/10 p-5 sm:p-6 md:p-8">
+            <div className="p-3 sm:p-4 md:p-8 w-full">
+              <div className="mx-auto max-w-2xl text-center rounded-2xl border border-black/10 bg-white shadow-xl ring-1 ring-black/10 p-4 sm:p-5 md:p-6">
                 <p className="text-sm uppercase tracking-wider text-neutral-900/60">{site.welcome}</p>
-                <h1 className="mt-2 text-4xl md:text-5xl font-semibold text-neutral-900">{site.name}</h1>
+                <h1 className="mt-2 text-3xl sm:text-3xl sm:text-4xl md:text-5xl font-semibold text-neutral-900">{site.name}</h1>
                 <p className="mt-2 text-neutral-900/60">{site.location}</p>
 
                 <div className="mt-6 flex flex-wrap gap-3 justify-center">

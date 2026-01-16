@@ -16,7 +16,7 @@ export default function MosaicGallery() {
     <section id="galeria" className="container-page section-pad">
       <h2 className="section-title">Galeria</h2>
 
-      <div className="mt-6 grid grid-cols-2 gap-3 sm:grid-cols-3 sm:gap-4 lg:grid-cols-5">
+      <div className="mt-6 grid grid-cols-2 min-[420px]:grid-cols-3 gap-2 sm:grid-cols-4 sm:gap-4 lg:grid-cols-5">
         {gallery.slice(0, 6).map((src, i) => (
           <button
             key={src}
