@@ -69,7 +69,7 @@ export default function SiteHeader() {
                 Dom <span className="opacity-80">▾</span>
               </a>
 
-              <a href="/#galeria" className={["transition", solid ? textSolid : textTop].join(" ")}>
+              <a href="/atrakcje" className={["transition", solid ? textSolid : textTop].join(" ")}>
                 Atrakcje
               </a>
 
