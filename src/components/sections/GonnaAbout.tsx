@@ -12,7 +12,7 @@ export default function GonnaAbout() {
 
   return (
     <section id="o-domu" className="full-bleed">
-      <div className="mx-auto max-w-7xl px-6 py-14 md:py-20">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 py-14 md:py-20">
         <div className="grid gap-10 md:grid-cols-2 md:items-center">
           <div>
             <h2 className="text-5xl md:text-6xl font-semibold" style={{ fontFamily: "var(--font-serif)" }}>
