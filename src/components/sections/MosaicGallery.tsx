@@ -16,7 +16,7 @@ export default function MosaicGallery() {
     <section id="galeria" className="container-page section-pad">
       <h2 className="section-title">Galeria</h2>
 
-      <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+      <div className="mt-6 grid grid-cols-2 gap-3 sm:grid-cols-3 sm:gap-4 lg:grid-cols-5">
         {gallery.slice(0, 6).map((src, i) => (
           <button
             key={src}
@@ -26,7 +26,7 @@ export default function MosaicGallery() {
             aria-label={`Otwórz zdjęcie ${i + 1}`}
           >
             {/* stały ratio, wszystkie kafelki równe */}
-            <div className="relative w-full aspect-[4/3]">
+            <div className="relative w-full aspect-square sm:aspect-[4/3]">
               <Image src={src} alt={`Zdjęcie ${i + 1}`} fill className="object-cover" />
             </div>
           </button>
