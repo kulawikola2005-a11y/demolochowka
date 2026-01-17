@@ -13,17 +13,17 @@ export default function Home() {
     <div className="bg-stone-50">
       <GonnaHero />
 
-      {/* normalne sekcje w "kontenerze" */}
+      {/* sekcje w kontenerze */}
       <main className="mx-auto max-w-6xl">
         <GonnaAbout />
         <MosaicGallery />
         <AttractionsSection />
       </main>
 
-      {/* PASEK FULL WIDTH */}
+      {/* FULL WIDTH pasek */}
       <StarReviews />
 
-      {/* PASEK FULL WIDTH */}
+      {/* FULL WIDTH pasek */}
       <CTASection />
 
       {/* znowu kontener */}
