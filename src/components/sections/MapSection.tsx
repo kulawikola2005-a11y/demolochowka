@@ -12,13 +12,13 @@ export default function MapSection() {
           borderBottom: "1px solid rgba(47,71,55,.25)",
         }}
       >
-        <div className="container-page">
+        <div className="w-full max-w-none px-3 sm:px-6 lg:px-8">
           <div className="text-center">
             <h2 className="section-title">Lokalizacja</h2>
             <p className="mt-2 text-muted">{site.addressLabel}</p>
           </div>
 
-          <div className="mt-8 card-soft overflow-hidden">
+          <div className="mt-8 card-soft overflow-hidden w-full">
             <div className="relative w-full" style={{ height: 420 }}>
               <iframe
                 title="Mapa"
