@@ -40,10 +40,10 @@ export default function GonnaHero() {
           {/* Wszystko na środku */}
           <div className="absolute inset-0 flex items-center justify-center">
             <div className="p-3 sm:p-4 md:p-8 w-full">
-              <div className="mx-auto max-w-2xl text-center rounded-2xl border border-black/10 bg-white shadow-xl ring-1 ring-black/10 p-4 sm:p-5 md:p-6">
-                <p className="text-sm uppercase tracking-wider text-neutral-900/60">{site.welcome}</p>
-                <h1 className="mt-2 text-3xl sm:text-3xl sm:text-4xl md:text-5xl font-semibold text-neutral-900">{site.name}</h1>
-                <p className="mt-2 text-neutral-900/60">{site.location}</p>
+              <div className="mx-auto max-w-3xl text-center px-4 sm:px-6">
+                <p className="text-sm uppercase tracking-wider text-white/80 drop-shadow-[0_6px_14px_rgba(0,0,0,0.45)]">{site.welcome}</p>
+                <h1 className="mt-2 text-3xl sm:text-3xl sm:text-4xl md:text-5xl font-semibold text-white drop-shadow-[0_10px_22px_rgba(0,0,0,0.55)]">{site.name}</h1>
+                <p className="mt-2 text-white/80 drop-shadow-[0_6px_14px_rgba(0,0,0,0.45)]">{site.location}</p>
 
                 <div className="mt-6 flex flex-wrap gap-3 justify-center">
                   <Link href="/rezerwacja" className="btn-primary">
@@ -51,7 +51,7 @@ export default function GonnaHero() {
                   </Link>
                   <a
                     href="#galeria"
-                    className="rounded-2xl border border-neutral-900/15 bg-white px-5 sm:px-6 py-3 text-sm font-medium text-neutral-900 hover:bg-white"
+                    className="rounded-2xl border border-neutral-900/15 bg-white px-5 sm:px-6 py-3 text-sm font-medium text-white drop-shadow-[0_10px_22px_rgba(0,0,0,0.55)] hover:bg-white"
                   >
                     Zobacz zdjęcia
                   </a>
@@ -59,7 +59,7 @@ export default function GonnaHero() {
 
                 {/* Kropki w “pastylce” żeby się NIE zlewały */}
                 {slides.length > 1 && (
-                  <div className="mt-5 mx-auto flex w-fit gap-1.5 rounded-full border border-black/10 bg-white px-3 py-1.5">
+                  <div className="mt-5 mx-auto flex w-fit gap-1.5 rounded-full border border-white/30 bg-black/20 backdrop-blur px-3 py-1.5">
                     {slides.map((_, i) => (
                       <button
                         key={i}
