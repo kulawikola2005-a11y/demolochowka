@@ -42,8 +42,8 @@ export default function GonnaHero() {
             <div className="p-3 sm:p-4 md:p-8 w-full">
               <div className="mx-auto max-w-3xl text-center px-4 sm:px-6">
                 <p className="text-sm uppercase tracking-wider text-white/80 drop-shadow-[0_6px_14px_rgba(0,0,0,0.45)]">{site.welcome}</p>
-                <h1 className="mt-2 text-3xl sm:text-3xl sm:text-4xl md:text-5xl font-semibold text-white drop-shadow-[0_10px_22px_rgba(0,0,0,0.55)]">{site.name}</h1>
-                <p className="mt-2 text-white/80 drop-shadow-[0_6px_14px_rgba(0,0,0,0.45)]">{site.location}</p>
+                <h1 className="mt-2 text-3xl sm:text-3xl sm:text-4xl md:text-5xl font-semibold text-white drop-shadow-[0_10px_22px_rgba(0,0,0,0.55)] text-white drop-shadow-[0_10px_22px_rgba(0,0,0,0.55)]">{site.name}</h1>
+                <p className="mt-2 text-white/90 drop-shadow-[0_6px_14px_rgba(0,0,0,0.45)]">{site.location}</p>
 
                 <div className="mt-6 flex flex-wrap gap-3 justify-center">
                   <Link href="/rezerwacja" className="btn-primary">
