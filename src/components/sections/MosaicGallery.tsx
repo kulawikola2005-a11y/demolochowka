@@ -13,7 +13,7 @@ export default function MosaicGallery() {
   const slides = useMemo(() => gallery.map((src) => ({ src })), [gallery]);
 
   return (
-    <section id="galeria" className="container-page section-pad">
+    <section id="galeria" className="mx-auto w-full max-w-none px-3 sm:max-w-6xl sm:px-6 lg:px-8 section-pad">
       <h2 className="section-title">Galeria</h2>
 
       <div className="mt-6 grid grid-cols-2 min-[420px]:grid-cols-3 gap-2 sm:grid-cols-4 sm:gap-4 lg:grid-cols-5">
