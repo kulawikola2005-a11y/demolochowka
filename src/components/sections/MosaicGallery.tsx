@@ -21,7 +21,7 @@ export default function MosaicGallery() {
           <button
             key={src}
             onClick={() => setIndex(i)}
-            className="relative overflow-hidden rounded-3xl border"
+            className="relative overflow-hidden rounded-none border"
             style={{ borderColor: "var(--border)" }}
             aria-label={`Otwórz zdjęcie ${i + 1}`}
           >
