@@ -46,7 +46,7 @@ export default function GonnaHero() {
           {/* środek: sam tekst na zdjęciu */}
           <div className="absolute inset-0 flex items-center justify-center">
             <div className="w-full px-4 sm:px-6 md:px-10 text-center">
-              <p className="text-sm uppercase tracking-wider text-white/80 drop-shadow-[0_6px_14px_rgba(0,0,0,0.45)]">
+              <p className="text-base sm:text-lg uppercase tracking-[0.18em] text-white/85 drop-shadow-[0_6px_14px_rgba(0,0,0,0.45)]">
                 Witamy w
               </p>
 
@@ -54,7 +54,7 @@ export default function GonnaHero() {
                 Lochówka
               </h1>
 
-              <p className="mt-2 text-white/90 drop-shadow-[0_6px_14px_rgba(0,0,0,0.45)]">
+              <p className="mt-3 text-lg sm:text-xl md:text-2xl text-white/90 drop-shadow-[0_6px_14px_rgba(0,0,0,0.45)]">
                 Domek w Krynicy-Zdroju
               </p>
 
