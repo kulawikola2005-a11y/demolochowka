@@ -14,8 +14,8 @@ export default function HighlightsSection() {
         className="grid gap-4 md:grid-cols-3"
       >
         {site.highlights.map((h) => (
-          <div key={h.title} className="card-soft p-6">
-            <h3 className="text-xl font-semibold">{h.title}</h3>
+          <div key={h.name} className="card-soft p-6">
+            <h3 className="text-xl font-semibold">{h.name}</h3>
             <p className="mt-2 text-sm text-neutral-600">{h.desc}</p>
           </div>
         ))}

@@ -45,14 +45,14 @@ h1, h2, h3{
 }
 
 @layer components{
+  /* MOBILE: szerzej (mniej zwężone) */
   .container-page{
-    @apply mx-auto max-w-6xl px-4;
+    @apply mx-auto w-full max-w-none px-3;
   }
 
-  /* bez md: w @apply -> responsywność robimy @media niżej */
   .section-pad{
-    padding-top: 2rem;   /* py-8 */
-    padding-bottom: 2rem;
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
   }
 
   .section-title{
@@ -103,12 +103,15 @@ h1, h2, h3{
 
 /* Responsive without md: utilities */
 @media (min-width: 768px){
-  .section-pad{
-    padding-top: 2.5rem;   /* ~py-10 */
-    padding-bottom: 2.5rem;
+  /* DESKTOP/TABLET: wraca ładny kontener */
+  .container-page{
+    max-width: 72rem; /* ~max-w-6xl */
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
   }
+
   .section-title{
-    font-size: 2.25rem;    /* ~text-4xl */
+    font-size: 2.25rem; /* ~text-4xl */
     line-height: 2.5rem;
   }
 }

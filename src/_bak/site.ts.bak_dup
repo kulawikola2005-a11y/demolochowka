@@ -13,6 +13,16 @@ export const site = {
 
 
   attractionsTitle: "Atrakcje w Krynicy i okolicy",
+  attractions: [
+    { name: "Deptak i Pijalnia Główna", desc: "Spacer, wody mineralne i klimat uzdrowiska.", time: "5–10 min" },
+    { name: "Góra Parkowa (kolejka + wieża)", desc: "Widoki, trasy spacerowe, klasyk Krynicy.", time: "10–15 min" },
+    { name: "Jaworzyna Krynicka (kolej gondolowa)", desc: "Panoramy i szlaki latem, narty zimą.", time: "15–20 min" },
+    { name: "Wieża widokowa – Słotwiny Arena", desc: "Skywalk wśród drzew, świetne zdjęcia.", time: "10–15 min" },
+    { name: "Muzeum Nikifora", desc: "Sztuka i historia Krynicy.", time: "5–10 min" },
+    { name: "Szlaki i spacery (np. Huzary)", desc: "Lekkie trasy i dłuższe wyjścia w góry.", time: "zależnie" },
+    { name: "Tylicz", desc: "Szybki wypad obok Krynicy, opcje rodzinne.", time: "15–20 min" },
+    { name: "Popradzki Park Krajobrazowy", desc: "Natura i spokojne trasy.", time: "zależnie" },
+  ],
 aboutTextShort: "Lochówka to przytulny domek w Krynicy-Zdroju — ciepły, wygodny i urządzony tak, żeby od razu zwolnić tempo. Idealny na weekend we dwoje albo spokojny wyjazd rodzinny: natura, cisza i blisko do szlaków oraz atrakcji.",
 
   
@@ -97,57 +107,4 @@ aboutText:
     { q: "Czy można z pupilem?", a: "Tak — warunkowo (doprecyzujemy zasady w opisie)." },
     { q: "Jak wygląda potwierdzenie rezerwacji?", a: "Wysyłasz zapytanie, a my potwierdzamy dostępność mailem." },
   ],
-
-  // Vlog / opowieść o Krynicy (strona /atrakcje)
-  krynicaVlog: {
-    heroTitle: "Krynica-Zdrój – opowieść na jeden (albo trzy) dni",
-    heroLead:
-      "Uzdrowiskowy klimat, deptak, widoki z góry i szybkie wypady w okolicę. Poniżej masz gotowy ‘vlogowy’ spacer – rozdział po rozdziale.",
-    // Możesz podmienić te zdjęcia na swoje. Na start możesz też użyć zdjęć z site.gallery.
-    heroImage: "/atrakcje/hero.jpg",
-
-    chapters: [
-      {
-        id: "deptak",
-        name: "Rozdział 1: Deptak i pijalnie – klasyk Krynicy",
-        text:
-          "Zacznij spokojnie. Poranna kawa, spacer po deptaku i wody mineralne. To miejsce ma swój rytm – im wolniej, tym lepiej.",
-        image: "/atrakcje/deptak.jpg",
-        tips: ["Najlepiej rano albo tuż przed zachodem", "Weź coś cieplejszego – bywa wietrznie"],
-      },
-      {
-        id: "gora-parkowa",
-        name: "Rozdział 2: Góra Parkowa – widoki i spacer ‘na luzie’",
-        text:
-          "Krótka trasa, świetny klimat i panorama. Idealne, jeśli chcesz widoków bez całodziennej wyprawy.",
-        image: "/atrakcje/gora-parkowa.jpg",
-        tips: ["Wygodne buty wystarczą", "Zrób małą przerwę na zdjęcia – jest kilka super punktów"],
-      },
-      {
-        id: "jaworzyna",
-        name: "Rozdział 3: Jaworzyna Krynicka – góry na poważnie (albo gondola)",
-        text:
-          "Jeśli masz ochotę na ‘wow’, jedź na Jaworzynę. Latem – szlaki i panorama, zimą – narty. Nawet sama gondola robi robotę.",
-        image: "/atrakcje/jaworzyna.jpg",
-        tips: ["Sprawdź pogodę – na górze potrafi się zmienić w 15 minut", "Zaplanuj 2–4h na spokojnie"],
-      },
-      {
-        id: "slotwiny",
-        name: "Rozdział 4: Słotwiny – wieża widokowa i zdjęcia jak z pocztówki",
-        text:
-          "Ścieżka w koronach drzew i widoki, które wyglądają jak kadr z vloga. Bardzo fotogeniczne miejsce.",
-        image: "/atrakcje/slotwiny.jpg",
-        tips: ["Najlepsze światło: złota godzina", "Super opcja nawet na krótkie okno czasowe"],
-      },
-      {
-        id: "muszyna",
-        name: "Rozdział 5: Wypad do Muszyny – ogrody i chill",
-        text:
-          "Jeśli masz pół dnia: Muszyna to świetny reset. Spokojniej niż w centrum Krynicy, dużo zieleni i przyjemny spacer.",
-        image: "/atrakcje/muszyna.jpg",
-        tips: ["Dobry plan na dzień ‘bez pośpiechu’", "Zrób to jako popołudniowy wypad"],
-      },
-    ],
-  },
-
 };

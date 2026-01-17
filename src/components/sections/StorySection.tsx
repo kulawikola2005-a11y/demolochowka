@@ -14,7 +14,7 @@ export default function StorySection() {
           viewport={{ once: true }}
           transition={{ duration: 0.45 }}
         >
-          <h2 className="text-3xl font-semibold">{site.story.title}</h2>
+          <h2 className="text-3xl font-semibold">{site.story.name}</h2>
           <p className="mt-4 text-neutral-700 leading-relaxed">{site.story.text}</p>
 
           <div className="mt-6 grid grid-cols-2 gap-3 text-sm text-neutral-700">
