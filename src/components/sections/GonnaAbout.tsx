@@ -42,7 +42,7 @@ export default function GonnaAbout() {
           <div className="relative">
             <div
               className="relative w-full overflow-hidden rounded-none border"
-              style={{ borderColor: "var(--border)", boxShadow: "var(--shadow)" }}
+              style={{ borderColor: "var(--border)", boxShadow: "var(--shadow)", borderRadius: 0 }}
             >
               <div className="relative w-full aspect-[4/5] md:aspect-[3/4]">
                 <Image src={img} alt="O domu" fill className="object-cover !rounded-none" />
@@ -51,7 +51,7 @@ export default function GonnaAbout() {
 
             <div
               className="pointer-events-none absolute -inset-6 -z-10 rounded-none"
-              style={{ background: "rgba(47,71,55,.06)" }}
+              style={{ background: "rgba(47,71,55,.06)", borderRadius: 0 }}
             />
           </div>
         </div>
