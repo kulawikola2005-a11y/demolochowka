@@ -41,7 +41,7 @@ export default function GonnaAbout() {
 
           <div className="relative">
             <div
-              className="relative w-full overflow-hidden rounded-[36px] border"
+              className="relative w-full overflow-hidden !rounded-[36px] border"
               style={{ borderColor: "var(--border)", boxShadow: "var(--shadow)" }}
             >
               <div className="relative w-full aspect-[4/5] md:aspect-[3/4]">
@@ -50,7 +50,7 @@ export default function GonnaAbout() {
             </div>
 
             <div
-              className="pointer-events-none absolute -inset-6 -z-10 rounded-[48px]"
+              className="pointer-events-none absolute -inset-6 -z-10 !rounded-[48px]"
               style={{ background: "rgba(47,71,55,.06)" }}
             />
           </div>
