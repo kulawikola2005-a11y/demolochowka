@@ -41,16 +41,16 @@ export default function GonnaAbout() {
 
           <div className="relative">
             <div
-              className="relative w-full overflow-hidden rounded-none border"
+              className="relative w-full overflow-hidden rounded-[36px] border"
               style={{ borderColor: "var(--border)", boxShadow: "var(--shadow)" }}
             >
               <div className="relative w-full aspect-[4/5] md:aspect-[3/4]">
-                <Image src={img} alt="O domu" fill className="object-cover !rounded-none" />
+                <Image src={img} alt="O domu" fill className="object-cover" />
               </div>
             </div>
 
             <div
-              className="pointer-events-none absolute -inset-6 -z-10 rounded-none"
+              className="pointer-events-none absolute -inset-6 -z-10 rounded-[48px]"
               style={{ background: "rgba(47,71,55,.06)" }}
             />
           </div>
