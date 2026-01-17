@@ -18,12 +18,15 @@ export default function Home() {
         <MosaicGallery />
         <AttractionsSection />
         <StarReviews />
-        <CTASection />
+      </main>
+
+      <CTASection />
+
+      <main className="mx-auto max-w-6xl">
         <GonnaContact />
       </main>
 
       <MapSection />
-
       <FooterSection />
     </div>
   );
