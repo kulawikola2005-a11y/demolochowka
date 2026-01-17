@@ -1,6 +1,9 @@
 import { site } from "@/data/site";
 
 export default function MapSection() {
+  const label = site.location ?? "Krynica-Zdrój (adres po potwierdzeniu)";
+  const q = encodeURIComponent(label);
+
   return (
     <section id="mapa" className="full-bleed">
       <div
@@ -12,17 +15,21 @@ export default function MapSection() {
           borderBottom: "1px solid rgba(47,71,55,.25)",
         }}
       >
-        <div className="w-full max-w-none px-3 sm:px-6 lg:px-8">
+        {/* nagłówek zostaje w kontenerze */}
+        <div className="mx-auto max-w-6xl px-4 sm:px-6">
           <div className="text-center">
             <h2 className="section-title">Lokalizacja</h2>
-            <p className="mt-2 text-muted">{site.addressLabel}</p>
+            <p className="mt-2 text-muted">{label}</p>
           </div>
+        </div>
 
-          <div className="mt-8 card-soft overflow-hidden w-full">
-            <div className="relative w-full" style={{ height: 420 }}>
+        {/* MAPA edge-to-edge */}
+        <div className="mt-8 w-full px-0">
+          <div className="card-soft overflow-hidden w-full !rounded-none sm:!rounded-3xl">
+            <div className="relative w-full h-[60vh] min-h-[520px] max-h-[780px]">
               <iframe
                 title="Mapa"
-                src={site.mapEmbedUrl}
+                src={`https://www.google.com/maps?q=${q}&output=embed`}
                 width="100%"
                 height="100%"
                 loading="lazy"
@@ -31,7 +38,10 @@ export default function MapSection() {
               />
             </div>
           </div>
+        </div>
 
+        {/* stopka w kontenerze */}
+        <div className="mx-auto max-w-6xl px-4 sm:px-6">
           <p className="mt-4 text-center text-xs text-muted">
             Dokładny adres podajemy po potwierdzeniu rezerwacji.
           </p>
